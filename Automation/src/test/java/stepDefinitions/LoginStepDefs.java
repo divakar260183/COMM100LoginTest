@@ -69,10 +69,11 @@ public class LoginStepDefs extends Base {
     public void iEnterAccountDetails(DataTable dataTable) {
         List<List<String>> rows = dataTable.asLists(String.class);
         for (List<String> columns : rows) {
-            loginPage.enterEmailAddressAs(columns.get(0));
-            loginPage.enterPassword(columns.get(1));
             loginPage.clearEmailAddress();
             loginPage.clearPassword();
+            loginPage.enterEmailAddressAs(columns.get(0));
+            loginPage.enterPassword(columns.get(1));
+
         }
     }
 }
