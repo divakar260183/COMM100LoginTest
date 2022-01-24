@@ -1,5 +1,17 @@
 @LoginProfile
 Feature: Login Profile
+  Background:
+    Given Launch the website
+
+  Scenario: Login to the Site
+    Given I navigate to login page
+    When I enter account details
+      | email                | password    |
+      | divakar26            | January1#1  |
+      | divakar26gmail.com   | January1#1  |
+      | divakar26@gmail      | January1#1  |
+    Then I click on Sign In button
+
 
   Scenario Outline: Invalid Login Scenario
     Given I navigate to login page
@@ -49,7 +61,3 @@ Feature: Login Profile
       | divakar26            | January1#1  |
       | divakar26gmail.com   | January1#1  |
       | divakar26@gmail      | January1#1  |
-
-
-
-

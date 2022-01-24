@@ -3,13 +3,13 @@ package util;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import stepDefinitions.Base;
 
-public class WebDriverUtil {
+public class WebDriverUtil extends Base {
 
     public static WebDriver getDriver() {
 
-        WebDriver driver;
-        String browser = Config.getConfigs().getValue("browser");
+        String browser = FileReaderManager.getInstance().getConfigReader().getBrowser();
 
         switch (browser) {
             case "Chrome": {
@@ -26,8 +26,12 @@ public class WebDriverUtil {
                 break;
             }
         }
+        assert driver != null;
         driver.manage().window().maximize();
-        driver.get(Config.getConfigs().getValue("url"));
         return driver;
+    }
+
+    public static void launchURL() {
+        driver.get(FileReaderManager.getInstance().getConfigReader().getURL());
     }
 }
