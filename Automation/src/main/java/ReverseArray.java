@@ -11,9 +11,6 @@ public class ReverseArray {
         reverseArray.reverse_using_collections(arr2);
         String [] string_arr = {"one", "Two", "Three", "Four", "Five", "Six","Seven"};
         reverseArray.reverse_using_collections(string_arr);
-        String str = "Hello";
-        str = "Ram";
-        System.out.println("str :"+str);
     }
 
     public void reverse_using_swapping(Integer[] int_arr) {
