@@ -2,7 +2,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 
-public class Test {
+public class FindDuplicates {
 
     private static Set<Integer> findIntegerDuplicates(List<Integer> integerListContainingDuplicates)
     {
@@ -77,7 +77,9 @@ public class Test {
             add(78);
         }
         };
-
+        Collections.sort(integerList);
+        System.out.println("Sorted Integer List:");
+        integerList.iterator().forEachRemaining(System.out::println);
         Set<Integer> integerDuplicates = findIntegerDuplicates(integerList);
 
         System.out.println("Duplicate Integers :");
@@ -97,7 +99,9 @@ public class Test {
             add("Ayantika");
             add("Aneek");
         }};
-
+        Collections.sort(stringList);
+        System.out.println("Sorted String List:");
+        stringList.iterator().forEachRemaining(System.out::println);
         Set<String> stringDuplicates = findStringDuplicates(stringList);
         System.out.println("Duplicate String :");
         stringDuplicates.iterator().forEachRemaining(System.out::println);

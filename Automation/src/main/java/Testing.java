@@ -1,18 +1,32 @@
-import java.util.Arrays;
 
 public class Testing {
-
-
-    public static void main(String[] args){
-        int[] arr = {1,5,7,10,2};
-        Arrays.sort(arr);
-        int n = arr.length;
-
-        if (arr[n-1] * arr[n-2] * arr[n-3] > arr[0] * arr[1] * arr[n-1]) {
-            System.out.println( arr[n-1] +","+ arr[n-2]+ ","+arr[n-3]);
+    public interface Operation {
+        void getResult();
+    }
+    public static class Table {
+        int number;
+        public Table(int number) {
+            this.number = number;
         }
-        else {
-            System.out.println( arr[0]+","+  arr[1]+","+  arr[n-1]);
+    }
+    public static class Generate_Table extends Table implements Operation {
+        public Generate_Table(int number) {
+            super(number);
         }
+        public void getResult() {
+            System.out.println("The table is: ");
+            for (int i = 1; i <= 10; i++) {
+                System.out.println(number + " * " + i + " = "
+                        + number * i);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Generate_Table table = new Generate_Table(5);
+        table.getResult();
+        Operation opr = new Generate_Table(6);
+        opr.getResult();
+
     }
 }
